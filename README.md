@@ -10,6 +10,8 @@ This is reference project which "dockerised" multiple services which include:
 
 Inspired by [this](https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/) Udemy course by Stephen Grider
 
+Stephen's Github repo for his origin project [here](https://github.com/StephenGrider/multi-docker)
+
 ## Build/Run Locally
 
 To build the Docker image , run the following command:
