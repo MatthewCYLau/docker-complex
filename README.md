@@ -59,13 +59,16 @@ This app composes of the following components:
 ### Redis cache
 
 - Listens on default port 6379
-- Communicates to `/worker/index.js`, a work component which runs the business logica in calculating fibonacci numbers
+- Communicates to `/worker/index.js`, a worker component which contains business logic in calculating fibonacci numbers
 
 ## Deployment to AWS Elastic Beanstalk
 
 - The `Dockerrun.aws.json` provides the container task definitions to deploy a multicontainer Docker app on AWS EB. See AWS EB documentation [here](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker_ecs.html#create_deploy_docker_ecs_dockerrun) for more details
-- Pulls images from Docker hub (i.e. [my](https://hub.docker.com/u/matlau) Docker hub) as part of deployment
+- Pulls images from Docker hub (i.e. [my Docker hub](https://hub.docker.com/u/matlau)) as part of deployment
 - You may choose to create a Redis cluster on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/GettingStarted.html) and create a PostgreSQL database instance on [Amazon Relational Database Service (RDS)](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html)
+- Additional steps include:
+  - Create a Security Group; add the AWS EB app environment, Redis cluster, and PostgreSQL database instance to the security group
+  - Set the Redis cluster, and PostgreSQL database connection endpoints as the `REDIS_HOST`, and `PGHOST` AWS EB environment variable value
 
 ## Contributing
 
